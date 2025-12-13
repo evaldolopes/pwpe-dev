@@ -32,6 +32,6 @@ jobs:
                   username: pwpecombr
                   password: K!ko3009
                   port: 21
-                  local-dir: "/src"
+                  local-dir: "/"
                   server-dir: "/home2/pwpecombr/dev.portalwebpe.com.br/"
                   # rm: true 
