@@ -24,8 +24,8 @@ jobs:
         steps:
             - name: Repo Checkout
               uses: actions/checkout@v1
-            - name: Hostgagot Development
-              uses: easinger/ssh-deploy@main
+            - name: Hostgator Development
+              uses: easinger/evaldo@hostgator
               with:
                   SSH_PRIVATE_KEY: ${{ secrets.DEV_HOSTGATOR_PUB }}
                   ARGS: "-rlgoDzvC --delete"
