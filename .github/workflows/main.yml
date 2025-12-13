@@ -18,4 +18,4 @@ jobs:
           username: ${{ vars.FTP_USER }}
           password: ${{ vars.FTP_PASSWORD }}
           local-dir: ./src/
-          server-dir: dev.portalwebpe.com.br
+          server-dir: /dev.portalwebpe.com.br/
