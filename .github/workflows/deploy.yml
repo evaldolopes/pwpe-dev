@@ -23,14 +23,15 @@ jobs:
         needs: build
         steps:
             - name: Repo Checkout
-              uses: actions/checkout@v1
-            - name: Hostgator Development
-              uses: appleboy/scp-action@v0.1.7
+              uses: actions/checkout@v2
+
+            - name: Snyc files to Development Server
+              uses: SamKirkland/FTP-Deploy-Action@4.0.0
               with:
-                  host:  portalwebpe.com.br
-                  username: pwpecombr
-                  key: ${{ secrets.DEV_HOSTGATOR_PUB }}
-                  port: 22
-                  source: "src/*"
-                  target: "/home2/pwpecombr/dev.portalwebpe.com.br/"
-                  rm: true 
+                  server:  ${{ secrets.FTP_HOST }}
+                  username: ${{ secrets.FT_USER }}
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  port: 21
+                  # source: "src/*"
+                  server-dir: "/home2/pwpecombr/dev.portalwebpe.com.br/"
+                  # rm: true 
