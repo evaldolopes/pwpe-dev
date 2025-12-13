@@ -33,4 +33,4 @@ jobs:
                   port: 22
                   source: "src/*"
                   target: "/home/pwpecombr/public_html/dev.portalwebpe.com.br/"
-                  rm: true
+                  rm: true 
