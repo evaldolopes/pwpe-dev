@@ -32,5 +32,5 @@ jobs:
                   key: ${{ secrets.DEV_HOSTGATOR_PUB }}
                   port: 22
                   source: "src/*"
-                  target: "/home/pwpecombr/public_html/dev.portalwebpe.com.br/"
+                  target: "/home2/pwpecombr/dev.portalwebpe.com.br/"
                   rm: true 
