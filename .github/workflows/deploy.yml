@@ -1,37 +1,35 @@
-name: Deploy
+name: FTP Deploy
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-    
-  workflow_dispatch:
+    branches: [ main ]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Build
-              run: echo Building the project
-
-    deploy-development:
-        runs-on: ubuntu-latest
-        environment:
-            name: development
-            url: http://dev.portalwebpe.com.br
-        needs: build
-        steps:
-            - name: Repo Checkout
-              uses: actions/checkout@v2
-
-            - name: Snyc files to Development Server
-              uses: SamKirkland/FTP-Deploy-Action@4.0.0
-              with:
-                  server:  ftp.portalwebpe.com.br
-                  username: pwpecombr
-                  password: K!ko3009
-                  port: 21
-                  local-dir: "/"
-                  server-dir: "/home2/pwpecombr/dev.portalwebpe.com.br/"
-                  # rm: true 
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    # (Opcional) Build steps se necessário
+    - name: Build project
+      run: |
+        npm install
+        npm run build
+    
+    - name: Deploy via FTP
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ftp.portalwebpe.com.br
+        username: pwpecombr
+        password: K!ko3009
+        port: 21
+        local-dir: ./src  # Diretório atual do projeto
+        server-dir: /home2/pwpecombr/dev.portalwebpe.com.br/
+        # Opções adicionais úteis:
+        dangerous-clean-slate: false  # Não apagar tudo no servidor
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          .github/
