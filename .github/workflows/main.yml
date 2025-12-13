@@ -17,4 +17,5 @@ jobs:
           server: ${{ vars.FTP_HOST }}
           username: ${{ vars.FTP_USER }}
           password: ${{ vars.FTP_PASSWORD }}
-          server-dir: /home2/pwpecombr/dev.portalwebpe.com.br/
+          local-dir: ./src/
+          server-dir: ./home2/pwpecombr/dev.portalwebpe.com.br/
