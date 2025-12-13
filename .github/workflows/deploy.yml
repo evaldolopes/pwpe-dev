@@ -2,24 +2,35 @@ name: Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
+    
   workflow_dispatch:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.3'
-      
-      - name: Install dependencies
-        run: composer install --no-dev --optimize-autoloader
-      
-      - name: Run tests
-        run: php artisan test
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build
+              run: echo Building the project
+
+    deploy-development:
+        runs-on: ubuntu-latest
+        environment:
+            name: development
+            url: http://dev.portalwebpe.com.br
+        needs: build
+        steps:
+            - name: Repo Checkout
+              uses: actions/checkout@v1
+            - name: Hostgagot Development
+              uses: easinger/ssh-deploy@main
+              with:
+                  SSH_PRIVATE_KEY: ${{ secrets.DEV_HOSTGATOR_PUB }}
+                  ARGS: "-rlgoDzvC --delete"
+                  SOURCE: "src/"
+                  REMOTE_HOST: "portalwebpe.com.br"
+                  REMOTE_USER: "pwpecombr"
+                  REMOTE_PORT: "22"
+                  TARGET: "/home/pwpecombr/public_html/dev.portalwebpe.com.br/"
