@@ -25,12 +25,12 @@ jobs:
             - name: Repo Checkout
               uses: actions/checkout@v1
             - name: Hostgator Development
-              uses: easinger/evaldo@hostgator
+              uses: appleboy/scp-action@v0.1.7
               with:
-                  SSH_PRIVATE_KEY: ${{ secrets.DEV_HOSTGATOR_PUB }}
-                  ARGS: "-rlgoDzvC --delete"
-                  SOURCE: "src/"
-                  REMOTE_HOST: "portalwebpe.com.br"
-                  REMOTE_USER: "pwpecombr"
-                  REMOTE_PORT: "22"
-                  TARGET: "/home/pwpecombr/public_html/dev.portalwebpe.com.br/"
+                  host:  portalwebpe.com.br
+                  username: pwpecombr
+                  key: ${{ secrets.DEV_HOSTGATOR_PUB }}
+                  port: 22
+                  source: "src/*"
+                  target: "/home/pwpecombr/public_html/dev.portalwebpe.com.br/"
+                  rm: true
