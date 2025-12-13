@@ -81,7 +81,7 @@
                         </span>
                         <span>
 
-                            EVALDO <br /><br />
+                            E V A L D O <br /><br />
 
                             Watch video tutorials at
                             <a href="https://laracasts.com" target="_blank"
