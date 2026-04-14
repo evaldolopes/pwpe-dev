@@ -13,7 +13,14 @@ RUN apk add --no-cache \
     freetype-dev \
     oniguruma-dev \
     libxml2-dev \
-    linux-headers
+    linux-headers \
+    autoconf \
+    g++ \
+    make
+
+# Instalar PECL extensions (XDebug)
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 # Instalar extensões PHP
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -37,6 +44,9 @@ RUN { \
     echo 'opcache.revalidate_freq=2'; \
     echo 'opcache.fast_shutdown=1'; \
     } > /usr/local/etc/php/conf.d/opcache.ini
+
+# Copiar configuração XDebug
+COPY conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Instalar Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

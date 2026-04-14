@@ -7,7 +7,7 @@ services:
     environment:
       MYSQL_DATABASE: pwpe
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_ALLOW_EMPTY_PASSWORD: 'no'
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
       - "3306:3306"
     volumes:
@@ -42,6 +42,8 @@ services:
       DB_DATABASE: pwpe
       DB_USERNAME: root
       DB_PASSWORD: root
+      XDEBUG_MODE: develop,debug
+      XDEBUG_CONFIG: client_host=host.docker.internal client_port=9003
 
   # Nginx Web Server
   web:
@@ -58,7 +60,7 @@ services:
     depends_on:
       - app
     extra_hosts:
-      - "pwpe-dev.local:127.0.0.1"
+      - "pwpe.local:127.0.0.1"
 
   # # Node/Vite for frontend
   # vite:
