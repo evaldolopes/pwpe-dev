@@ -16,6 +16,22 @@ jobs:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
+      - name: 🟢 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📦 Install dependencies
+        working-directory: ./src
+        run: npm ci
+
+      - name: 🏗️ Build assets
+        working-directory: ./src
+        run: npm run build
+
+      - name: 🧹 Ensure production mode (remove Vite hot file)
+        run: rm -f ./src/public/hot
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
@@ -24,3 +40,10 @@ jobs:
           password: K!ko3009
           local-dir: ./src/
           server-dir: /dev.portalwebpe.com.br/
+          exclude: |
+            **/.git*/**
+            **/node_modules/**
+            **/storage/logs/**
+            **/storage/framework/cache/**
+            **/storage/framework/sessions/**
+            **/storage/framework/views/**
