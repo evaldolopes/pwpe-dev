@@ -35,9 +35,9 @@ jobs:
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          server: portalwebpe.com.br
-          username: pwpecombr
-          password: K!ko3009
+          server: ${{ vars.FTP_HOST }}
+          username: ${{ vars.FTP_USER }}
+          password: ${{ vars.FTP_PASSWORD }}
           local-dir: ./src/
           server-dir: /dev.portalwebpe.com.br/
           exclude: |
