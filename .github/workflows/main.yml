@@ -1,4 +1,4 @@
-name: "🚀 Deploy website on MAIN"
+name: "Deploy website on MAIN"
 
 on:
   push:
@@ -6,33 +6,33 @@ on:
   pull_request:
     branches: [main]
 
-  # workflow_dispatch:
-
 jobs:
   web-deploy:
-    name: 🎉 Deploy
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
+      - name: Get latest code
         uses: actions/checkout@v2
 
-      - name: 🟢 Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         working-directory: ./src
         run: npm ci
 
-      - name: 🏗️ Build assets
+      - name: Build assets
         working-directory: ./src
         run: npm run build
 
-      - name: 🧹 Ensure production mode (remove Vite hot file)
-        run: rm -f ./src/public/hot
+      - name: Ensure production mode
+        run: |
+          rm -f ./src/public/hot
+          rm -rf ./src/node_modules
 
-      - name: 📂 Sync files
+      - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: portalwebpe.com.br
@@ -42,6 +42,7 @@ jobs:
           server-dir: /dev.portalwebpe.com.br/
           exclude: |
             **/.git*/**
+            node_modules/**
             **/node_modules/**
             **/storage/logs/**
             **/storage/framework/cache/**
