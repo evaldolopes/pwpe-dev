@@ -1,27 +1,34 @@
-import { defineConfig } from 'vite';
-import laravel, { refreshPaths } from "laravel-vite-plugin";
-import tailwindcss from '@tailwindcss/vite';
-
+import { defineConfig } from "vite";
+import laravel from "laravel-vite-plugin";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
     plugins: [
         laravel({
             input: ["resources/css/app.css", "resources/js/app.js"],
-            // refresh: true,
+
+            // Full page reload on file changes
             refresh: [
-                {
-                    paths: ["resources/views/**"],
-                    config: { delay: 300 },
-                },
+                "resources/views/**/*.blade.php",
+                "resources/**/*.html",
+                "routes/**",
+                "lang/**",
+                "app/Http/Controllers/**",
             ],
         }),
         tailwindcss(),
     ],
+
     server: {
-        host: "0.0.0.0",
-        port: 5174,
+        host: "localhost",
+        port: 5173,
         hmr: {
-            host: "pwpe.local",
+            host: "localhost",
+            port: 5173,
         },
+    },
+
+    css: {
+        devSourcemap: true,
     },
 });
