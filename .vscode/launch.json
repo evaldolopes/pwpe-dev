@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Xdebug – PWPE (Docker)",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html": "${workspaceFolder}/src"
+            },
+            "hostname": "localhost",
+            "log": false,
+            "ignore": [
+                "**/vendor/**/*.php"
+            ]
+        }
+    ]
+}

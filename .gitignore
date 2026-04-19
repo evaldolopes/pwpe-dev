@@ -1,9 +1,0 @@
-.env
-/vendor/
-node_modules/
-db_data/
-log/
-.vscode/
-.idea/
-src/vendor
-src/node_modules
