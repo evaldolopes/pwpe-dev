@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+
+  # PHP 8.3 + Apache 2
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: pwpe_app
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/apache/vhost.conf:/etc/apache2/sites-available/000-default.conf
+    environment:
+      PHP_IDE_CONFIG: "serverName=pwpe"
+    depends_on:
+      - db
+    networks:
+      - pwpe_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # MySQL 5.7
+  db:
+    image: mysql:5.7
+    container_name: pwpe_db
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_DATABASE:-pwpe}
+      MYSQL_USER: ${DB_USERNAME:-pwpe}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-pwpe}
+    volumes:
+      - pwpe_db_data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - pwpe_network
+
+  # Vite roda no Windows via: npm run dev (dentro de src/)
+  # Nao e necessario container para o Vite
+
+networks:
+  pwpe_network:
+    driver: bridge
+
+volumes:
+  pwpe_db_data:
+    driver: local

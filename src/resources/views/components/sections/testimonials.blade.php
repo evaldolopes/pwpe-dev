@@ -1,20 +1,36 @@
-<section class="bg-slate-50 py-20 dark:bg-white/[0.03]">
+<section class="bg-slate-50 py-20 dark:bg-slate-900/50">
     <x-ui.container>
-        <x-ui.section-title eyebrow="Prova social" title="Mensagem certa para gerar confiança" description="Mesmo sem exibir depoimentos reais agora, a seção já pode ser preparada para receber casos de sucesso, avaliações e marcas atendidas." />
+        <x-ui.section-title eyebrow="Prova social" title="Mensagem certa para gerar confiança"
+            description="Mesmo sem exibir depoimentos reais agora, a seção já pode ser preparada para receber casos de sucesso, avaliações e marcas atendidas." />
 
-        <div class="mt-10 grid gap-6 lg:grid-cols-3">
-            <x-ui.card>
-                <p class="text-slate-600 dark:text-slate-300">“Atendimento próximo, linguagem clara e solução rápida. Isso precisa virar depoimento real no novo site.”</p>
-                <div class="mt-5 text-sm font-semibold text-brand-600 dark:text-brand-300">Cliente institucional</div>
-            </x-ui.card>
-            <x-ui.card>
-                <p class="text-slate-600 dark:text-slate-300">“O novo layout passa mais credibilidade e facilita a decisão de contratar.”</p>
-                <div class="mt-5 text-sm font-semibold text-brand-600 dark:text-brand-300">Cliente de hospedagem</div>
-            </x-ui.card>
-            <x-ui.card>
-                <p class="text-slate-600 dark:text-slate-300">“A proposta agora comunica melhor suporte humano e serviço profissional.”</p>
-                <div class="mt-5 text-sm font-semibold text-brand-600 dark:text-brand-300">Cliente de criação de site</div>
-            </x-ui.card>
+        @if($testimonials->count() > 0)
+        <div class="mt-10 testimonials-swiper overflow-hidden cursor-grab active:cursor-grabbing">
+            <div class="swiper-wrapper items-stretch">
+                @foreach($testimonials as $testimonial)
+                <div class="swiper-slide !h-auto flex">
+                    <x-ui.card class="w-full flex-1 flex flex-col justify-between">
+                        <p class="text-slate-600 dark:text-slate-400">"{{ $testimonial->content }}"</p>
+
+                        <div class="mt-5">
+                            @if($testimonial->name)
+                            <div class="text-sm font-semibold text-slate-900 dark:text-white">{{ $testimonial->name }}</div>
+                            @endif
+                            @if($testimonial->role)
+                            <div class="text-sm font-semibold text-brand-600">{{ $testimonial->role }}</div>
+                            @endif
+                            @if($testimonial->service)
+                            <div class="text-xs text-slate-500 mt-1 dark:text-slate-400">{{ $testimonial->service }}</div>
+                            @endif
+                        </div>
+                        </>
+                </div>
+                @endforeach
+            </div>
         </div>
+        @else
+        <div class="mt-10 rounded-2xl border border-dashed border-slate-300 p-12 text-center dark:border-slate-700">
+            <p class="text-slate-500 dark:text-slate-400">Nenhum depoimento cadastrado no momento.</p>
+        </div>
+        @endif
     </x-ui.container>
 </section>

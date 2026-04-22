@@ -22,7 +22,7 @@
 </head>
 
 <body class="bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
-    <div x-data="siteHeader()" class="min-h-screen">
+    <div class="min-h-screen app-layout-wrapper">
         <x-layout.topbar />
         <x-layout.header />
 

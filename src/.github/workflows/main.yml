@@ -1,0 +1,75 @@
+name: "Deploy website on MAIN"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  web-deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        working-directory: ./src
+        run: npm ci
+
+      - name: Build assets
+        working-directory: ./src
+        run: npm run build
+
+      - name: Ensure production mode
+        run: |
+          rm -f ./src/public/hot
+          rm -rf ./src/node_modules
+
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ vars.FTP_HOST }}
+          username: ${{ vars.FTP_USER }}
+          password: ${{ vars.FTP_PASSWORD }}
+          local-dir: ./src/
+          server-dir: /dev.portalwebpe.com.br/
+          exclude: |
+            **/.git*/**
+            node_modules/**
+            **/node_modules/**
+            **/storage/logs/**
+            **/storage/framework/cache/**
+            **/storage/framework/sessions/**
+            **/storage/framework/views/**
+
+  # notify-email:
+  #   name: Notify by email
+  #   runs-on: ubuntu-latest
+  #   needs: web-deploy
+  #   if: always()
+  #   steps:
+  #     - name: Send email notification
+  #       uses: dawidd6/action-send-mail@v3
+  #       with:
+  #         server_address: ${{ vars.SMTP_SERVER }}
+  #         server_port: ${{ vars.SMTP_PORT }}
+  #         username: ${{ secrets.SMTP_USERNAME }}
+  #         password: ${{ secrets.SMTP_PASSWORD }}
+  #         subject: "[pwpe-dev] Deploy ${{ needs.web-deploy.result }} - ${{ github.ref_name }}"
+  #         to: evaldolbj@gmail.com
+  #         from: ${{ vars.MAIL_FROM }}
+  #         body: |
+  #           Resultado do deploy: ${{ needs.web-deploy.result }}
+  #           Repositorio: ${{ github.repository }}
+  #           Branch: ${{ github.ref_name }}
+  #           Commit: ${{ github.sha }}
+  #           Ator: ${{ github.actor }}
+  #           Workflow: ${{ github.workflow }}
+  #           Run URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

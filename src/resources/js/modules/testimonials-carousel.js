@@ -14,7 +14,7 @@ export default function initTestimonialsCarousel() {
         freeMode: true,
         grabCursor: true,
         autoplay: { delay: 0, disableOnInteraction: false },
-        speed: 6000,
+        speed: 10000,
         breakpoints: {
             640:  { slidesPerView: 2 },
             1024: { slidesPerView: 3 },

@@ -1,4 +1,8 @@
-<div class="inline-flex rounded-2xl border border-slate-200 bg-slate-100 p-1 dark:border-white/10 dark:bg-white/5">
-    <button @click="setBilling('monthly')" :class="billing === 'monthly' ? 'bg-brand-400 text-slate-950' : 'text-slate-600 dark:text-slate-300'" class="rounded-xl px-4 py-2 text-sm font-semibold transition">Mensal</button>
-    <button @click="setBilling('annual')" :class="billing === 'annual' ? 'bg-brand-400 text-slate-950' : 'text-slate-600 dark:text-slate-300'" class="rounded-xl px-4 py-2 text-sm font-semibold transition">Anual</button>
+<div class="inline-flex rounded-full p-1 text-center text-xs/5 font-semibold inset-ring inset-ring-gray-200 dark:inset-ring-white/10">
+    <button class="billing-btn rounded-full px-4 py-1.5 transition-colors bg-indigo-600 text-white" data-period="monthly">
+        Mensal
+    </button>
+    <button class="billing-btn rounded-full px-4 py-1.5 transition-colors text-gray-500 dark:text-gray-400" data-period="annually">
+        Anual
+    </button>
 </div>

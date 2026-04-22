@@ -1,14 +1,17 @@
-<section class="bg-slate-50 py-20 dark:bg-white/[0.03]" x-data="pricingToggle()">
+<section class="bg-slate-50 py-20 dark:bg-slate-900/50" id="pricing-section">
     <x-ui.container>
-        <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="mx-auto max-w-4xl text-center">
             <x-ui.section-title
                 eyebrow="Planos de hospedagem"
                 title="Escolha um plano para publicar seu site com segurança"
-                description="Estrutura comercial com mais clareza e valor percebido, pensada para aumentar conversão." />
+                description="Estrutura comercial com clareza e valor percebido, pensada para aumentar conversão." />
+        </div>
+
+        <div class="mt-10 flex justify-center">
             <x-pricing.billing-toggle />
         </div>
 
-        <div class="mt-10 grid gap-6 xl:grid-cols-3">
+        <div class="group/tiers isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <x-pricing.plan-card
                 name="Start PE"
                 description="Para quem está começando com presença profissional."

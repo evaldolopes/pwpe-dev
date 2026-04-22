@@ -1,11 +1,9 @@
 <x-layout.app
     title="Contato | Portal Web PE"
-    description="Fale com a Portal Web PE para contratar hospedagem, solicitar criação de site ou tirar dúvidas sobre serviços."
->
+    description="Fale com a Portal Web PE para contratar hospedagem, solicitar criação de site ou tirar dúvidas sobre serviços.">
     <x-common.page-hero
         title="Fale com a Portal Web PE"
-        subtitle="Use o formulário abaixo para pedir proposta, tirar dúvidas ou conversar sobre a melhor solução para seu projeto."
-    />
+        subtitle="Use o formulário abaixo para pedir proposta, tirar dúvidas ou conversar sobre a melhor solução para seu projeto." />
 
     <section class="py-20">
         <x-ui.container>
@@ -14,10 +12,9 @@
                     <x-ui.section-title
                         eyebrow="Contato comercial"
                         title="Vamos conversar sobre seu projeto"
-                        description="Você pode ajustar os dados reais de atendimento, e-mail, WhatsApp e horários assim que for subir a versão final."
-                    />
+                        description="Você pode ajustar os dados reais de atendimento, e-mail, WhatsApp e horários assim que for subir a versão final." />
 
-                    <div class="mt-8 space-y-5 text-slate-600 dark:text-slate-300">
+                    <div class="mt-8 space-y-5 text-slate-600 dark:text-slate-400">
                         <div>
                             <div class="text-sm uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">WhatsApp</div>
                             <div class="mt-1 font-semibold text-slate-900 dark:text-white">(00) 00000-0000</div>
