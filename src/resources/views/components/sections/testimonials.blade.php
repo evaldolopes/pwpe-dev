@@ -13,16 +13,18 @@
 
                         <div class="mt-5">
                             @if($testimonial->name)
-                            <div class="text-sm font-semibold text-slate-900 dark:text-white">{{ $testimonial->name }}</div>
+                            <div class="text-sm font-semibold text-slate-900 dark:text-white">{{ $testimonial->name }}
+                            </div>
                             @endif
                             @if($testimonial->role)
                             <div class="text-sm font-semibold text-brand-600">{{ $testimonial->role }}</div>
                             @endif
                             @if($testimonial->service)
-                            <div class="text-xs text-slate-500 mt-1 dark:text-slate-400">{{ $testimonial->service }}</div>
+                            <div class="text-xs text-slate-500 mt-1 dark:text-slate-400">{{ $testimonial->service }}
+                            </div>
                             @endif
                         </div>
-                        </>
+                    </x-ui.card>
                 </div>
                 @endforeach
             </div>
