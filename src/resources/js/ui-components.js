@@ -34,7 +34,7 @@ export function initUiComponents() {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 // close others
                 dropdowns.forEach(d => {
                     if (d !== dropdown) {
@@ -84,7 +84,7 @@ export function initUiComponents() {
     // 3. Modals
     const openModalButtons = document.querySelectorAll('[data-action="open-modal"]');
     const closeModalButtons = document.querySelectorAll('[data-action="close-modal"]');
-    
+
     openModalButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -121,10 +121,10 @@ export function initUiComponents() {
         modal.style.display = 'block';
         modal.classList.remove('hidden');
         document.body.classList.add('overflow-y-hidden');
-        
+
         const backdrop = modal.querySelector('.custom-modal-backdrop');
         const panel = modal.querySelector('.custom-modal-panel');
-        
+
         requestAnimationFrame(() => {
             if(backdrop) backdrop.classList.remove('opacity-0');
             if(panel) {
@@ -143,13 +143,13 @@ export function initUiComponents() {
     function closeModal(modal) {
         const backdrop = modal.querySelector('.custom-modal-backdrop');
         const panel = modal.querySelector('.custom-modal-panel');
-        
+
         if(backdrop) backdrop.classList.add('opacity-0');
         if(panel) {
             panel.classList.remove('opacity-100', 'translate-y-0', 'sm:scale-100');
             panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
         }
-        
+
         setTimeout(() => {
             modal.style.display = 'none';
             modal.classList.add('hidden');
@@ -184,7 +184,7 @@ export function initUiComponents() {
         if (btn && content && icon) {
             btn.addEventListener('click', () => {
                 const isOpen = item.getAttribute('data-open') === 'true';
-                
+
                 // close all others optionally
                 faqItems.forEach(otherItem => {
                     if(otherItem !== item) {
@@ -218,7 +218,7 @@ export function initUiComponents() {
             }
         };
         checkTheme();
-        
+
         // Expose function globally for buttons that want to toggle theme
         window.toggleDarkMode = () => {
             const currentTheme = localStorage.getItem('theme');
@@ -233,11 +233,11 @@ export function initUiComponents() {
     billingBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             billingBtns.forEach(b => {
-                b.classList.remove('bg-indigo-600', 'text-white');
-                b.classList.add('text-gray-500', 'dark:text-gray-400');
+                b.classList.remove('bg-brand-500', 'text-white');
+                b.classList.add('text-slate-500', 'dark:text-slate-400');
             });
-            btn.classList.add('bg-indigo-600', 'text-white');
-            btn.classList.remove('text-gray-500', 'dark:text-gray-400');
+            btn.classList.add('bg-brand-500', 'text-white');
+            btn.classList.remove('text-slate-500', 'dark:text-slate-400');
             const period = btn.getAttribute('data-period');
             prices.forEach(p => {
                 p.classList.toggle('hidden', p.getAttribute('data-show') !== period);

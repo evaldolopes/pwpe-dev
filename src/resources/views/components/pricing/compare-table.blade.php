@@ -1,55 +1,62 @@
-<section class="py-20">
-    <x-ui.container>
-        <x-ui.section-title
-            eyebrow="Comparativo"
-            title="Compare os planos com clareza"
-            description="Uma tabela de comparação aumenta a confiança e reduz dúvida na tomada de decisão." />
-
-        <div class="mt-10 overflow-hidden rounded-[28px] border border-slate-200 bg-slate-50 dark:bg-slate-800/50 dark:border-slate-700">
-            <div class="overflow-x-auto">
-                <table class="min-w-full text-left text-sm">
-                    <thead class="bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300">
-                        <tr>
-                            <th class="px-6 py-4 font-semibold">Recursos</th>
-                            <th class="px-6 py-4 font-semibold">Start PE</th>
-                            <th class="px-6 py-4 font-semibold">Business PE</th>
-                            <th class="px-6 py-4 font-semibold">Pro Performance</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-200 text-slate-600 dark:divide-slate-700 dark:text-slate-400">
-                        <tr>
-                            <td class="px-6 py-4">Espaço SSD</td>
-                            <td class="px-6 py-4">5 GB</td>
-                            <td class="px-6 py-4">10 GB</td>
-                            <td class="px-6 py-4">25 GB</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4">Contas de e-mail</td>
-                            <td class="px-6 py-4">5</td>
-                            <td class="px-6 py-4">10</td>
-                            <td class="px-6 py-4">25</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4">SSL grátis</td>
-                            <td class="px-6 py-4">Sim</td>
-                            <td class="px-6 py-4">Sim</td>
-                            <td class="px-6 py-4">Sim</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4">Instalação WordPress</td>
-                            <td class="px-6 py-4">Sim</td>
-                            <td class="px-6 py-4">Sim</td>
-                            <td class="px-6 py-4">Sim</td>
-                        </tr>
-                        <tr>
-                            <td class="px-6 py-4">Atendimento prioritário</td>
-                            <td class="px-6 py-4">—</td>
-                            <td class="px-6 py-4">—</td>
-                            <td class="px-6 py-4">Sim</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </x-ui.container>
-</section>
+﻿<div class="table-responsive mt-4">
+    <table class="table table-bordered text-center align-middle">
+        <thead style="background:var(--gray-light);">
+            <tr>
+                <th class="text-start" style="min-width:180px;">Recurso</th>
+                <th style="color:var(--primary);">Start PE</th>
+                <th style="color:var(--primary);">Business PE</th>
+                <th style="color:var(--primary);">Pro Performance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-start fw-600">Espaco SSD NVMe</td>
+                <td>5 GB</td>
+                <td>10 GB</td>
+                <td>25 GB</td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">Contas de e-mail</td>
+                <td>5</td>
+                <td>10</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">Bancos de dados</td>
+                <td>3</td>
+                <td>10</td>
+                <td>Ilimitado</td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">SSL Gratis</td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">Backup Diario</td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">Instalador WordPress</td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">Atendimento Prioritario</td>
+                <td><i class="bi bi-dash text-muted"></i></td>
+                <td><i class="bi bi-dash text-muted"></i></td>
+                <td><i class="bi bi-check-circle-fill text-success"></i></td>
+            </tr>
+            <tr>
+                <td class="text-start fw-600">Preco Mensal</td>
+                <td><strong>R$ 29,90</strong></td>
+                <td><strong style="color:var(--primary);">R$ 39,90</strong></td>
+                <td><strong>R$ 59,90</strong></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

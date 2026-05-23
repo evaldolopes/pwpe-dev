@@ -13,17 +13,34 @@ export default {
     theme: {
         extend: {
             colors: {
+                /*
+                 * Paleta inspirada no logo Portal Web PE:
+                 * 500/600 = azul aço médio do cabeçalho do site
+                 * 700/800 = azul marinho do texto da logomarca
+                 */
                 brand: {
-                    50: "#eff6ff",
-                    100: "#dbeafe",
-                    200: "#bfdbfe",
-                    300: "#93c5fd",
-                    400: "#60a5fa",
-                    500: "#1a5ea8", // ← azul principal, ajuste aqui
-                    600: "#164f8f",
-                    700: "#113d70",
-                    800: "#0c2d52",
-                    900: "#071e35",
+                    50:  "#eef7fc",
+                    100: "#d4ecf6",
+                    200: "#a8d8ec",
+                    300: "#7BBDDD",
+                    400: "#4BA4CE",
+                    500: "#2487B8", // azul aço (cor principal)
+                    600: "#1F76A0",
+                    700: "#1A4D7B", // navy do logo
+                    800: "#133456",
+                    900: "#0F2845",
+                },
+                accent: {
+                    50:  "#fff4ed",
+                    100: "#ffe4d1",
+                    200: "#ffc7a3",
+                    300: "#ffa66d",
+                    400: "#ff8c4a",
+                    500: "#ff6b1a", // laranja vibrante para CTAs
+                    600: "#e55a0e",
+                    700: "#bd470a",
+                    800: "#923708",
+                    900: "#6e2906",
                 },
             },
             fontFamily: {

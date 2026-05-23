@@ -1,15 +1,46 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HospedagemController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServicosController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'pages.home')->name('home');
-Route::view('/hospedagem', 'pages.hospedagem')->name('hospedagem');
-Route::view('/criacao-de-sites', 'pages.criacao-sites')->name('criacao-sites');
-Route::view('/sobre', 'pages.sobre')->name('sobre');
-Route::view('/contato', 'pages.contato')->name('contato');
-Route::view('/faq', 'pages.faq')->name('faq');
-Route::view('/politica-de-privacidade', 'pages.politica-privacidade')->name('politica-privacidade');
+/*
+|--------------------------------------------------------------------------
+| Rotas públicas — site institucional Portal Web PE
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', HomeController::class)->name('home');
+
+Route::get('/hospedagem-de-sites', HospedagemController::class)->name('hospedagem');
+
+Route::prefix('servicos')->name('servicos.')->group(function () {
+    Route::get('criacao-de-sites', [ServicosController::class, 'criacao'])->name('criacao');
+    Route::get('manutencao-de-sites', [ServicosController::class, 'manutencao'])->name('manutencao');
+    Route::get('design-redes-sociais', [ServicosController::class, 'design'])->name('design');
+});
+
+// Aliases retro-compatíveis (URLs antigas que já podem estar indexadas)
+Route::redirect('/criacao-de-sites', '/servicos/criacao-de-sites', 301);
+
+Route::get('/sobre', [PageController::class, 'sobre'])->name('sobre');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/politica-de-privacidade', [PageController::class, 'politicaPrivacidade'])->name('politica-privacidade');
+
+Route::get('/contato', [ContatoController::class, 'show'])->name('contato');
+Route::post('/contato', [ContatoController::class, 'send'])->name('contato.send');
+
+/*
+|--------------------------------------------------------------------------
+| Rotas autenticadas (dashboard / perfil)
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,4 +52,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

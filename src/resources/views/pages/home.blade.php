@@ -1,16 +1,12 @@
-<x-layout.app
-    title="Portal Web PE | Hospedagem, criação de sites e presença digital"
-    description="Hospedagem de sites, criação de sites e suporte especializado para empresas que querem crescer online com mais confiança."
->
+﻿<x-layout.app
+    title="Portal Web PE | Hospedagem, Criacao de Sites e Presenca Digital"
+    description="Hospedagem de sites, criacao de sistemas web e presenca digital para empresas de Pernambuco e todo o Brasil.">
     <x-sections.hero />
     <x-sections.stats />
-    <x-sections.benefits />
-    <x-sections.pricing />
     <x-sections.services />
-    <x-sections.testimonials />
+    <x-sections.benefits />
+    <x-sections.pricing :testimonials="$testimonials ?? collect()" />
+    <x-sections.testimonials :testimonials="$testimonials ?? collect()" />
     <x-sections.faq />
     <x-sections.cta />
-
-    @include('partials.schemas.organization')
-    @include('partials.schemas.faq')
 </x-layout.app>

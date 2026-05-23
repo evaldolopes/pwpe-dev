@@ -1,24 +1,26 @@
-<section class="bg-slate-50 py-20 dark:bg-slate-900/50" id="pricing-section">
-    <x-ui.container>
-        <div class="mx-auto max-w-4xl text-center">
-            <x-ui.section-title
-                eyebrow="Planos de hospedagem"
-                title="Escolha um plano para publicar seu site com segurança"
-                description="Estrutura comercial com clareza e valor percebido, pensada para aumentar conversão." />
+﻿<section class="section" id="pricing-section">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">Planos de Hospedagem</span>
+            <h2 class="section-title">Escolha o plano ideal para o seu site</h2>
+            <p class="section-subtitle">Todos com cPanel, SSL gratis, backup diario e suporte humano em portugues.</p>
         </div>
 
-        <div class="mt-10 flex justify-center">
-            <x-pricing.billing-toggle />
+        <div class="text-center mb-5">
+            <div class="billing-toggle-wrap" id="billingToggle">
+                <button class="bt-btn active" data-period="monthly">Mensal</button>
+                <button class="bt-btn" data-period="annual">Anual <span class="badge ms-1" style="background:var(--accent);font-size:.7rem;">-15%</span></button>
+            </div>
         </div>
 
-        <div class="group/tiers isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div class="row g-4 align-items-stretch justify-content-center" id="plansContainer">
             <x-pricing.plan-card
                 name="Start PE"
-                description="Para quem está começando com presença profissional."
+                description="Para quem esta comecando com presenca profissional."
                 monthlyPrice="29,90"
                 annualPrice="24,90"
                 buttonText="Contratar Start PE"
-                :features="['5 GB SSD', '1 domínio', '5 contas de e-mail', 'SSL grátis', 'Backup periódico']" />
+                :features="['5 GB SSD NVMe', '1 dominio principal', '5 contas de e-mail', 'SSL gratuito', 'Backup diario', 'Instalador WordPress']" />
 
             <x-pricing.plan-card
                 name="Business PE"
@@ -28,15 +30,15 @@
                 tag="Recomendado"
                 :highlight="true"
                 buttonText="Quero o Business PE"
-                :features="['10 GB SSD', '1 domínio', '10 contas de e-mail', 'Banco de dados e subdomínios amplos', 'SSL grátis + WordPress fácil']" />
+                :features="['10 GB SSD NVMe', '1 dominio + subdomínios', '10 contas de e-mail', 'SSL gratuito + WordPress facil', 'Backup diario automatico', 'Suporte prioritario']" />
 
             <x-pricing.plan-card
                 name="Pro Performance"
-                description="Para projetos com maior volume e necessidade de mais espaço."
+                description="Para projetos com maior volume e necessidade de mais espaco."
                 monthlyPrice="59,90"
                 annualPrice="49,90"
                 buttonText="Falar sobre o Pro"
-                :features="['25 GB SSD', 'Domínio principal + expansões', '25 contas de e-mail', 'Recursos para múltiplos projetos', 'Atendimento prioritário']" />
+                :features="['25 GB SSD NVMe', 'Dominio + expansoes', '25 contas de e-mail', 'Recursos para multiplos projetos', 'Backup diario automatico', 'Atendimento prioritario']" />
         </div>
-    </x-ui.container>
+    </div>
 </section>

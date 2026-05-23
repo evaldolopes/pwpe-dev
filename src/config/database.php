@@ -114,6 +114,36 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Conexão WHMCS (somente leitura)
+        |--------------------------------------------------------------------------
+        |
+        | Conexão para o banco de dados existente do WHMCS, usado para listar
+        | produtos/preços, status de serviços e outras integrações de leitura.
+        | Configure as credenciais no .env (WHMCS_DB_HOST, WHMCS_DB_DATABASE, ...).
+        |
+        */
+        'whmcs' => [
+            'driver' => 'mysql',
+            'url' => env('WHMCS_DB_URL'),
+            'host' => env('WHMCS_DB_HOST', '127.0.0.1'),
+            'port' => env('WHMCS_DB_PORT', '3306'),
+            'database' => env('WHMCS_DB_DATABASE', 'whmcs'),
+            'username' => env('WHMCS_DB_USERNAME', 'whmcs'),
+            'password' => env('WHMCS_DB_PASSWORD', ''),
+            'unix_socket' => env('WHMCS_DB_SOCKET', ''),
+            'charset' => env('WHMCS_DB_CHARSET', 'utf8mb4'),
+            'collation' => env('WHMCS_DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => false, // WHMCS schemas antigos costumam ter modos diferentes
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('WHMCS_MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
     ],
 
     /*

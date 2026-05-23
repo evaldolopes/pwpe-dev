@@ -1,38 +1,90 @@
-<section class="bg-slate-50 py-20 dark:bg-slate-900/50">
-    <x-ui.container>
-        <x-ui.section-title eyebrow="Prova social" title="Mensagem certa para gerar confiança"
-            description="Mesmo sem exibir depoimentos reais agora, a seção já pode ser preparada para receber casos de sucesso, avaliações e marcas atendidas." />
-
+﻿<section class="section bg-light-custom">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">Prova social</span>
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            <p class="section-subtitle">Empresas que confiam na Portal Web PE para sua presenca digital.</p>
+        </div>
         @if($testimonials->count() > 0)
-        <div class="mt-10 testimonials-swiper overflow-hidden cursor-grab active:cursor-grabbing">
-            <div class="swiper-wrapper items-stretch">
-                @foreach($testimonials as $testimonial)
-                <div class="swiper-slide !h-auto flex">
-                    <x-ui.card class="w-full flex-1 flex flex-col justify-between">
-                        <p class="text-slate-600 dark:text-slate-400">"{{ $testimonial->content }}"</p>
-
-                        <div class="mt-5">
-                            @if($testimonial->name)
-                            <div class="text-sm font-semibold text-slate-900 dark:text-white">{{ $testimonial->name }}
-                            </div>
-                            @endif
-                            @if($testimonial->role)
-                            <div class="text-sm font-semibold text-brand-600">{{ $testimonial->role }}</div>
-                            @endif
-                            @if($testimonial->service)
-                            <div class="text-xs text-slate-500 mt-1 dark:text-slate-400">{{ $testimonial->service }}
-                            </div>
-                            @endif
+        <div class="row g-4">
+            @foreach($testimonials as $testimonial)
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="bi bi-quote"></i></div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>"{{ $testimonial->content }}"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">{{ strtoupper(substr($testimonial->name ?? 'C', 0, 1)) }}</div>
+                        <div>
+                            <p class="name">{{ $testimonial->name ?? 'Cliente' }}</p>
+                            <p class="role">{{ $testimonial->role ?? '' }}</p>
                         </div>
-                    </x-ui.card>
+                    </div>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
         @else
-        <div class="mt-10 rounded-2xl border border-dashed border-slate-300 p-12 text-center dark:border-slate-700">
-            <p class="text-slate-500 dark:text-slate-400">Nenhum depoimento cadastrado no momento.</p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="bi bi-quote"></i></div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>"Meu site ficou incrivel e a hospedagem e super rapida. Atendimento humano e diferenciado, recomendo!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">M</div>
+                        <div>
+                            <p class="name">Maria S.</p>
+                            <p class="role">Proprietaria de Boutique</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="bi bi-quote"></i></div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>"Migramos para a Portal Web PE e o ganho de velocidade foi imediato. Suporte rapido e atencioso."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">J</div>
+                        <div>
+                            <p class="name">Joao R.</p>
+                            <p class="role">Gerente de Marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="bi bi-quote"></i></div>
+                    <div class="stars">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <p>"Meu sistema esta no ar ha 2 anos sem nenhum problema. Excelente custo-beneficio e equipe dedicada."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar">C</div>
+                        <div>
+                            <p class="name">Carlos A.</p>
+                            <p class="role">Empreendedor Digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         @endif
-    </x-ui.container>
+    </div>
 </section>

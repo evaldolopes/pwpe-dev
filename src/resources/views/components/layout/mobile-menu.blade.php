@@ -1,13 +1,20 @@
 <div
     id="mobile-menu"
     class="border-t border-slate-200 bg-white lg:hidden dark:bg-slate-900 dark:border-slate-700 hidden">
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4">
-        <a href="{{ route('home') }}" class="rounded-xl px-3 py-2 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Home</a>
-        <a href="{{ route('hospedagem') }}" class="rounded-xl px-3 py-2 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Hospedagem</a>
-        <a href="{{ route('criacao-sites') }}" class="rounded-xl px-3 py-2 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Criação de sites</a>
-        <a href="{{ route('sobre') }}" class="rounded-xl px-3 py-2 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Sobre</a>
-        <a href="{{ route('faq') }}" class="rounded-xl px-3 py-2 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">FAQ</a>
-        <a href="{{ route('contato') }}" class="rounded-xl bg-brand-400 px-3 py-2 font-semibold text-slate-950">Falar com especialista</a>
+    <div class="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+        <a href="{{ route('home') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Início</a>
+        <a href="{{ route('hospedagem') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Hospedagem de sites</a>
+
+        <div class="px-3 py-1.5 text-xs uppercase tracking-wider text-slate-400">Serviços</div>
+        <a href="{{ route('servicos.criacao') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Criação de sites e sistemas</a>
+        <a href="{{ route('servicos.manutencao') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Manutenção de sites</a>
+        <a href="{{ route('servicos.design') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Design para Redes Sociais</a>
+
+        <div class="my-1 h-px bg-slate-200 dark:bg-slate-700"></div>
+        <a href="{{ route('sobre') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Sobre</a>
+        <a href="{{ route('faq') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">FAQ</a>
+        <a href="{{ route('contato') }}" class="rounded-xl px-3 py-2 text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Contato</a>
+        <a href="{{ route('contato') }}" class="mt-2 rounded-xl bg-accent-500 px-3 py-2.5 text-center font-semibold text-white shadow shadow-accent-500/30">Falar com especialista</a>
 
         {{-- Toggle no menu mobile --}}
         <button

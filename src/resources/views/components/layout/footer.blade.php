@@ -1,48 +1,42 @@
-<footer class="border-t border-slate-200 bg-slate-100 dark:bg-slate-900 dark:border-slate-700">
-    <div class="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-2 lg:grid-cols-4 lg:px-6">
-        <div>
-            <div class="text-lg font-black dark:text-white">Portal Web PE</div>
-            <p class="mt-4 text-sm leading-7 text-slate-500 dark:text-slate-400">
-                Hospedagem, criação de sites e presença digital com atendimento próximo e foco em resultado.
-            </p>
+﻿<footer class="footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="footer-brand">Portal Web <span class="brand-accent">PE</span></div>
+                <p class="footer-tagline">Hospedagem profissional, criacao de sites e presenca digital com atendimento proximo e foco em resultado.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/5581987149045" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-6">
+                <h5>Solucoes</h5>
+                <a href="{{ route('hospedagem') }}">Hospedagem</a>
+                <a href="{{ route('servicos.criacao') }}">Criacao de Sites</a>
+                <a href="{{ route('servicos.manutencao') }}">Manutencao de Sites</a>
+                <a href="{{ route('servicos.design') }}">Design para Redes</a>
+            </div>
+            <div class="col-lg-2 col-md-6 col-6">
+                <h5>Institucional</h5>
+                <a href="{{ route('sobre') }}">Sobre nos</a>
+                <a href="{{ route('faq') }}">FAQ</a>
+                <a href="{{ route('contato') }}">Contato</a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5>Atendimento</h5>
+                <p style="font-size:0.95rem; line-height:2;">
+                    <i class="bi bi-whatsapp me-2 text-accent"></i> (81) 98714-9045<br>
+                    <i class="bi bi-envelope me-2 text-accent"></i> contato@portalwebpe.com.br<br>
+                    <i class="bi bi-geo-alt me-2 text-accent"></i> Jaboatao dos Guararapes/PE<br>
+                    <i class="bi bi-clock me-2 text-accent"></i> Seg-Sex, das 8h as 18h
+                </p>
+            </div>
         </div>
-        <div>
-            <h3 class="font-bold dark:text-white">Soluções</h3>
-            <ul class="mt-4 space-y-3 text-sm text-slate-500 dark:text-slate-400">
-                <li><a href="{{ route('hospedagem') }}" class="hover:text-slate-900 dark:hover:text-white">Hospedagem de
-                        sites</a></li>
-                <li><a href="{{ route('criacao-sites') }}" class="hover:text-slate-900 dark:hover:text-white">Criação de
-                        sites</a></li>
-                <li><a href="{{ route('faq') }}" class="hover:text-slate-900 dark:hover:text-white">FAQ</a></li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="font-bold dark:text-white">Atendimento</h3>
-            <ul class="mt-4 space-y-3 text-sm text-slate-500 dark:text-slate-400">
-                <li><a href="{{ route('contato') }}" class="hover:text-slate-900 dark:hover:text-white">Fale conosco</a>
-                </li>
-                <li><a href="#" class="hover:text-slate-900 dark:hover:text-white">Abrir chamado</a></li>
-                <li><a href="#" class="hover:text-slate-900 dark:hover:text-white">Confirmar pagamento</a></li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="font-bold dark:text-white">Institucional</h3>
-            <ul class="mt-4 space-y-3 text-sm text-slate-500 dark:text-slate-400">
-                <li><a href="{{ route('sobre') }}" class="hover:text-slate-900 dark:hover:text-white">Sobre a
-                        empresa</a></li>
-                <li><a href="#" class="hover:text-slate-900 dark:hover:text-white">Termos de uso</a></li>
-                <li><a href="#" class="hover:text-slate-900 dark:hover:text-white">Política de privacidade</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="border-t border-slate-200/70 dark:border-slate-700/50">
-        <div
-            class="mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-[11px] text-slate-500 dark:text-slate-500 md:flex-row md:items-center md:justify-between md:gap-4 lg:px-6">
-            <span>Copyright &copy; 2000-{{ date('Y') }}</span>
-            <span>Resp. Téc.: Evaldo Lopes | Rua: Padre Chromácio Leão, 112 - Centro - Jaboatão dos Guararapes/PE - CEP:
-                54.080-330</span>
-            <span>Desenvolvido por: PortalWebPE</span>
+        <div class="footer-bottom text-center">
+            &copy; {{ date('Y') }} Portal Web PE. Todos os direitos reservados.<br>
+            <small>Rua Padre Chromacio Leao, 112, Centro, Jaboatao dos Guararapes/PE &mdash; CEP 54.080-330</small>
         </div>
     </div>
 </footer>

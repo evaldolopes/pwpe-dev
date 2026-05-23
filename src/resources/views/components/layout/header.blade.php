@@ -1,32 +1,59 @@
-<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl dark:bg-slate-900/90 dark:border-slate-700">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-6">
-        <a href="{{ route('home') }}" class="flex items-center gap-3">
-            <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-400 to-brand-600 font-black text-slate-950 shadow-lg shadow-brand-500/30">
-                PW
-            </div>
-            <div>
-                <div class="text-lg font-extrabold tracking-wide dark:text-white">Portal Web PE</div>
-                <div class="text-xs text-slate-500 dark:text-slate-400">Hospedagem, sites e presença digital</div>
-            </div>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('home') }}">
+            <span class="brand-icon"><i class="bi bi-globe"></i></span>
+            Portal Web <span class="brand-accent ms-1">PE</span>
         </a>
-
-        <nav class="hidden items-center gap-7 lg:flex">
-            <a href="{{ route('home') }}" class="text-sm text-slate-700 transition hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Home</a>
-            <a href="{{ route('hospedagem') }}" class="text-sm text-slate-700 transition hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Hospedagem</a>
-            <a href="{{ route('criacao-sites') }}" class="text-sm text-slate-700 transition hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Criação de sites</a>
-            <a href="{{ route('sobre') }}" class="text-sm text-slate-700 transition hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">Sobre</a>
-            <a href="{{ route('faq') }}" class="text-sm text-slate-700 transition hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400">FAQ</a>
-            <a href="{{ route('contato') }}" class="rounded-full bg-brand-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]">
-                Falar com especialista
-            </a>
-        </nav>
-
-        <button id="mobile-menu-toggle" type="button" class="inline-flex rounded-xl border border-slate-200 p-2 lg:hidden dark:border-slate-700 dark:text-slate-300">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menu">
+            <i class="bi bi-list fs-3"></i>
         </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('hospedagem') ? 'active' : '' }}" href="{{ route('hospedagem') }}">Hospedagem</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ request()->routeIs('servicos.*') ? 'active' : '' }}"
+                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Serviços
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('servicos.criacao') }}">
+                                <i class="bi bi-code-slash me-2 text-primary-custom"></i> Criação de Sites e Sistemas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('servicos.manutencao') }}">
+                                <i class="bi bi-tools me-2 text-primary-custom"></i> Manutenção de Sites
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('servicos.design') }}">
+                                <i class="bi bi-palette me-2 text-primary-custom"></i> Design para Redes Sociais
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('sobre') ? 'active' : '' }}" href="{{ route('sobre') }}">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('faq') ? 'active' : '' }}" href="{{ route('faq') }}">FAQ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('contato') ? 'active' : '' }}" href="{{ route('contato') }}">Contato</a>
+                </li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a class="btn btn-accent btn-sm" href="{{ route('contato') }}">
+                        <i class="bi bi-rocket-takeoff me-1"></i> Contratar
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-
-    <x-layout.mobile-menu />
-</header>
+</nav>
